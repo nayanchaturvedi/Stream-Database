@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<streams>
+<stream>
+<streamname value="weather"></streamname>
+<streamsource value=""></streamsource>
+<window><windowsize value="5"></windowsize><windowvelocity value="3"></windowvelocity><windowtype value="Sliding Window"></windowtype></window>
+<properties><property><name value=""></name><type value="int"></type></property></properties>
+<continous_queries><query value=""></query></continous_queries>
+</stream>
+<stream>
+<streamname value="live ticker"></streamname>
+<streamsource value=""></streamsource>
+<window><windowsize value="5"></windowsize><windowvelocity value="3"></windowvelocity><windowtype value="Sliding Window"></windowtype></window>
+<properties><property><name value=""></name><type value="int"></type></property></properties>
+<continous_queries><query value=""></query><query value=""></query><query value=""></query></continous_queries>
+</stream>
+<stream>
+<streamname value="stocks"></streamname>
+<streamsource value=""></streamsource>
+<window><windowsize value="5"></windowsize><windowvelocity value="3"></windowvelocity><windowtype value="Sliding Window"></windowtype></window>
+<properties><property><name value=""></name><type value="int"></type></property></properties>
+<continous_queries><query value=""></query><query value=""></query><query value=""></query></continous_queries>
+</stream>
+</streams>

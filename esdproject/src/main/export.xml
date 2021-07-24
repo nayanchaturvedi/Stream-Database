@@ -1,0 +1,150 @@
+<streams>
+    <stream>
+        <streamname value="weather"/>
+        <streamsource value="/home/nayanchaturvedi/Downloads/esdproject_final/esdproject/src/main/java/com/example/erp/controller/weather_demo.csv"/>
+        <window>
+            <windowsize value="10"/>
+            <windowvelocity value="5"/>
+            <windowtype value="Sliding Window"/>
+        </window>
+        <properties>
+            <property>
+                <name value="MinTemp"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="MaxTemp"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Rainfall"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Evaporation"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Sunshine"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="WindGustDir"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="WindGustSpeed"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="WindDir9am"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="WindDir3pm"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="WindSpeed9am"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="WindSpeed3pm"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Humidity9am"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Humidity3pm"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Pressure9am"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Pressure3pm"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Cloud9am"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Cloud3pm"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Temp9am"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Temp3pm"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="RainToday"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="RISK_MM"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="RainTomorrow"/>
+                <type value="varchar(100)"/>
+            </property>
+        </properties>
+        <continous_queries>
+            <query value="select * from weather"/>
+            <query value="select avg(MinTemp),avg(MaxTemp),RainToday,CURRENT_TIMESTAMP() from weather group by RainToday"/>
+            <query value="select abs(avg(WindSpeed9am)-avg(WindSpeed3pm)) as SpeedDiff, CURRENT_TIMESTAMP() from weather"/>
+        </continous_queries>
+    </stream>
+    <stream>
+        <streamname value="stocks"/>
+        <streamsource value="/home/nayanchaturvedi/Downloads/esdproject_final/esdproject/src/main/java/com/example/erp/controller/SAP_demo.csv"/>
+        <window>
+            <windowsize value="10"/>
+            <windowvelocity value="5"/>
+            <windowtype value="Sliding Window"/>
+        </window>
+        <properties>
+            <property>
+                <name value="Date"/>
+                <type value="date"/>
+            </property>
+            <property>
+                <name value="Open"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="High"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Low"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Close"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Adj_Close"/>
+                <type value="varchar(100)"/>
+            </property>
+            <property>
+                <name value="Volume"/>
+                <type value="varchar(100)"/>
+            </property>
+        </properties>
+        <continous_queries>
+            <query value="select * from stocks"/>
+            <query value="select AVG(Open), CURRENT_TIMESTAMP() from stocks"/>
+            <query value="select Date,CURRENT_TIMESTAMP() from stocks where Close&gt;Open"/>
+        </continous_queries>
+    </stream>
+</streams>
